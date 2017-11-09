@@ -1,6 +1,6 @@
 > RDD（Resilient Distributed Dataset）：弹性分布式数据集。
 
-##特性
+## 特性
 - A list of partitions (可分片)
 - A function for computing each split (compute func)
 - A list of dependencies on other RDDs (依赖)
