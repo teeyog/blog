@@ -1,4 +1,5 @@
 > RDD（Resilient Distributed Dataset）：弹性分布式数据集。
+
 ##特性
 - A list of partitions (可分片)
 - A function for computing each split (compute func)
@@ -112,6 +113,7 @@ abstract class Dependency[T] extends Serializable {
 一次转换操作可同时包含窄依赖和宽依赖：
 
 ![](http://upload-images.jianshu.io/upload_images/3597066-beb34a8a2703622f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 窄依赖的抽象类为NarrowDependency，对应实现分别是 OneToOneDependency （一对一依赖）类和RangeDependency （范围依赖）类。
 
 一对一依赖表示子 RDD 分区的编号与父 RDD 分区的编号完全一致的情况，若两个 RDD 之间存在着一对一依赖，则子 RDD 的分区个数、分区内记录的个数都将继承自父 RDD。
