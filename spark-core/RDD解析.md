@@ -159,7 +159,7 @@ class HashPartitioner(partitions: Int) extends Partitioner {
 #### RangePartitioner
 在key的hashcode分布不均的情况下会到导致通过HashPartitioner分出来的分区数据倾斜不均匀，这是就需要用到RangePartitioner分区器，该分区器运行速度相对HashPartitioner较慢，原理复杂。
 
-HashPartitioner会将一个范围的key直接映射到一个partition，也就是一个partition的key一定比另一个partition的key都大或者都小，而怎么具体划分这个范围的边界成为关键，既要保证分布均匀又要减少遍历次数。具体实现可见 [Spark分区器HashPartitioner和RangePartitioner代码详解](https://www.iteblog.com/archives/1522.html)
+HashPartitioner会将一个范围的key直接映射到一个partition，也就是一个partition的key一定比另一个partition的key都大或者都小，而怎么具体划分这个范围的边界成为关键，既要保证分布均匀又要减少遍历次数。具体实现可参考 [Spark分区器HashPartitioner和RangePartitioner代码详解](https://www.iteblog.com/archives/1522.html)
 
 ## preferred locations
 每个具体的RDD实例都需要实现自己的getPreferredLocations方法，RDD位置优先即返回partition的存储位置，该位置和spark的任务调度有关，尽量将计算移到该partition对应的地方。
